@@ -1,5 +1,5 @@
 Development Strategy
-For this project, you will be writing most of your code in two files: server.js and website/app.js. Note that it's very important that you plan your project before you start writing any code! Break your project down into small pieces of work and strategize your approach to each one. With these bite-sized amounts, it'll be easier to debug and fix any issues that appear.
+For this project, you will be writing most of your code in two files: "server.js" and website/app.js. Note that it's very important that you plan your project before you start writing any code! Break your project down into small pieces of work and strategize your approach to each one. With these bite-sized amounts, it'll be easier to debug and fix any issues that appear.
 
 Testing
 Testing your code as you go is an excellent development approach. If you would like to write and run tests for parts of your implementation code, you can use the file tests.js to see examples of test code you might write along the development path.
