@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
+
+body {
+	background: #8B4513;
+	font-family: Copperplate, Papyrus, fantasy;
+}
+
+#app {
+	display: grid;
+  
+/*grid-template-columns:*/
+	height: 200vh;
+	background: #FFF8DC;
+	color: #BC8F8F;
+	justify-content: center;
+	font-size: 15px;
+	font-family: Copperplate, Papyrus, fantasy;
+}
+
+.holder {
+	display: flex;
+	flex-direction: column;
+	padding: 0em;
+}
+.holder input {
+	padding: 0em;
+	border-radius: 20px;
+}
+.holder textarea {
+	padding: 0em;
+	border-radius: 20px;
+}
+
+.entry {
+	background: rgba(255,255,240);
+	padding: 0em;
+	border-radius: 20px;
+}
+
+#zip {
+	border: 2px solid maroon;
+}
+
+#zip.error {
+	border: 2px solid maroon;
+}
+
+#conditions {
+	display: flex;
+	flex-direction: row;
+}
+
+#conditions p {
+	margin: 0;
+}
+
+#conditions img {
+	width: auto;
+	height: 1em;
+}
+
+#entryHolder {
+}
+
+#date {
+}
+
+#temp {
+}
+
+#content {
+}
+
+.headline {
+	font-family: Copperplate, Papyrus, fantasy;
+	font-size: 8em;
+}
+
+.title {
+}
+
+#generate:hover {
+	background-color: #FFF8DC;
+	color: #22b2da;
+}
+
+//*Basic Styling To Override Default For Basic HTML Elements*//
+label {
+	display: block;
+	font-size: 15px;
+}
+
+input {
+	display: block;
+	height: 50px;
+	width: 400px;
+	color: #FFB6C1;
+	font-size: 20px;
+	font-family: Copperplate, Papyrus, fantasy;
+	border: none;
+}
+
+button {
+	width: 30%;
+	height: 50px;
+	background: #800000;
+	color: #FFB6C1;
+	font-size: 15px;
+	font-family: Copperplate, Papyrus, fantasy;
+	border-radius: 20px;
+	box-shadow: 2px 4px 5px #444;
+	margin: 1em auto;
+	cursor: pointer;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+textarea {
+	background: #FFFFF0;
+	color: #FFB6C1;
+	font-size: 20px;
+	font-family: Copperplate, Papyrus, fantasy;
+}
+
+//*Reset style for HTML element on active to have no border*//
+	input:focus,
+	select:focus,
+	textarea:focus,
+	button:focus {
+	outline: none;
+}
+
+//*Style for Placeholder Text*//
+
+::placeholder {
+//*Firefox, Chrome, Opera*//
+	color: #f0d43a;
+	font-family: Copperplate, Papyrus, fantasy;
+}
+
+:-ms-input-placeholder {
+//*Internet Explorer 10-11*//
+	color: #f0d43a;
+	font-family: Copperplate, Papyrus, fantasy;
+}
+
+::-ms-input-placeholder {
+//*Microsoft Edge*//
+	color: #f0d43a;
+	font-family: Copperplate, Papyrus, fantasy;
+}
