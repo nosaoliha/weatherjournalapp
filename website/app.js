@@ -45,7 +45,7 @@ let data = {
 //this is to update UI dynamically
 	updateUI();  
 }
-let updateUI= async function() {
+let updateUI=> async function() {
 let dateDiv = document.getElementById('date');
 let tempDiv = document.getElementById('temp');
 let contentDiv = document.getElementById('content');
@@ -54,9 +54,9 @@ let contentDiv = document.getElementById('content');
 let UI_Data = await getData("http://localhost:8000/projectData");
   
 //this is to update UI dynamically
-	dateDiv.innerText = UI_Data.date;
-	tempDiv.innerText = UI_Data.temp;
-	contentDiv.innerText = UI_Data.content;
+	dateDiv.innerHTML = UI_Data.date;
+	tempDiv.innerHTML = UI_Data.temp;
+	contentDiv.innerHTML = UI_Data.content;
 }
 
 	async function postData(url,data) {
