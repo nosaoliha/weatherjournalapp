@@ -1,0 +1,22 @@
+{
+  "name": "weather-journal-app",
+  "version": "1.0.0",
+  "description": "## Overview This project challenges you to design an asynchronous web app that dynamically updates the UI using a Web API and user data..",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2"
+  }
+}
