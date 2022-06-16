@@ -1,72 +1,88 @@
 /* Global Variables */
 //these HTML elements listens for click events, get values, update dynamically and configure the OpenWeatherApi
-let button = document.getElementById('generate')
-let zip = document.getElementById('zip')
-let feelings = document.getElementById('feelings')
-let date = document.getElementById('date')
-let temp = document.getElementById('temp')
-let content = document.getElementById('content')
-let url = 'https://api.openweathermap.org/data/2.5/weather'
-let APIKey = '56a13938398c2a6da8160476adbc71e6'
-
-//this is to create a new date instance dynamically with javascript
-let d = new Date()
-let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear()
-
-//this is to fetch weather data from OpenWeatherApi
-let fetchWeather = async (baseURL, zip, apiKey) => {
+//http://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&APPID={APIKEY}
+let APIKEY = '56a13938398c2a6da8160476adbc71e6';
+let apiBaseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
+let fetchWeather = async function (url) {
+let response = await fetch(url);
 	try {
-let request = await fetch(
-	`${baseURL}?zip=${zip},us&units=metric&APPID=${apiKey}`,
-)
-let result = await request.json()
+let data = await response.json();
 
 //this destructuring of the result object
-let {
-	main: {temp},
-} = result
-	return temp
-} catch (e) {
-	throw e
-}
+    return data;
+  } catch (err) {
+    console.log("Err:", err)
+  }
 }
 
+//this is to fetch weather data from OpenWeatherApi
+let handleGenerate= async function() {
+let zip = document.getElementById('zip').value;
+let content = document.getElementById('feelings').value;
+let url = `${apiBaseUrl}${zip}&APPID=${APIKEY}`;
+  
+	if (zip.length === 0 || feelings.length === 0) {
+    alert("Please fill up all values !");
+    return
+  }
+let weatherData = await fetchWeather(url);
+  
+// console.log("weatherData=",weatherData);
+let temp = weatherData.main.temp;
+
+// Create a new date instance dynamically with JS
+let d = new Date();
+let date = d.getDate() + '.'+ (d.getMonth() + 1 )+ '.' + d.getFullYear();
+let data = {
+    date: date,
+    temp: temp,
+    content: content,
+  }
+  
 //this is to POST Request to store date, temp and user input
-let saveData = async (path, data) => {
-	try {
-	await fetch(path, {
-	method: 'POST',
-	headers: {
-	'Content-Type': 'application/json',
-},
-	body: JSON.stringify(data),
-})
-} catch (e) {
-	throw e
-}
-}
-
+	await postData("http://localhost:8000/projectData", data);
+  
 //this is to update UI dynamically
-let updateUI = async (temperature, newDate, feelings) => {
-	date.innerText = newDate
-	temp.innerText = `${temperature} deg`
-	ontent.innerText = feelings
+	updateUI();  
+}
+let updateUI= async function() {
+let dateDiv = document.getElementById('date');
+let tempDiv = document.getElementById('temp');
+let contentDiv = document.getElementById('content');
+  
+//Get data from owr own server
+let UI_Data = await getData("http://localhost:8000/projectData");
+  
+//this is to update UI dynamically
+	dateDiv.innerText = UI_Data.date;
+	tempDiv.innerText = UI_Data.temp;
+	contentDiv.innerText = UI_Data.content;
 }
 
-//this listens for click events
-	button.addEventListener('click', () => {
-	fetchWeather(url, zip.value, APIKey)
-	.then(temp => {
-	return {date: newDate, temp, content: feelings.value}
-})
-	.then(data => {
-	saveData('/api/projectdata', data)
-	return data
-})
-	.then(({temp, date, content}) => updateUI(temp, date, content))
-	.catch(e => {
+	async function postData(url,data) {
+let response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+	return await response.json(); 
+}
 
-//this is for error handling with UI
-	console.error(e)
-})
-})
+let getData= async function(url) {
+let response = await fetch(url)
+	try {
+let data = response.json();
+    console.log(data);
+
+//this is for error handling with UI    
+    return data;
+  } catch(err){
+    console.log(err);
+  }
+ 
+}
+//this listens for click events
+let generateBtn = document.querySelector('#generate');
+	generateBtn.addEventListener('click', handleGenerate);
