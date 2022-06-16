@@ -1,153 +1,201 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower&display=swap');
-
+html,
 body {
-	background: #8B4513;
-	font-family: Copperplate, Papyrus, fantasy;
+    background: #FFFFFF;
+    font-family: Copperplate, Papyrus, fantasy;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-#app {
-	display: grid;
-  
-/*grid-template-columns:*/
-	height: 200vh;
-	background: #FFF8DC;
-	color: #BC8F8F;
-	justify-content: center;
-	font-size: 15px;
-	font-family: Copperplate, Papyrus, fantasy;
+#app{
+    display: grid;
+    width: 100%;
+    margin: 0 auto;
+    grid-template-areas: "header header"
+                         "col-left col-right"
+                         "footer footer";
+    grid-template-columns: 1fr 1fr;
+    /*grid-template-rows: 60px 1fr 50px;*/
+    grid-auto-rows: minmax(50px, auto);
+    font-family: Copperplate, Papyrus, fantasy;
 }
 
-.holder {
-	display: flex;
-	flex-direction: column;
-	padding: 0em;
-}
-.holder input {
-	padding: 0em;
-	border-radius: 20px;
-}
-.holder textarea {
-	padding: 0em;
-	border-radius: 20px;
+
+.title{
+    text-align: center;
+    margin: auto;
+    color: #8B0000;
 }
 
-.entry {
-	background: rgba(255,255,240);
-	padding: 0em;
-	border-radius: 20px;
+.headline{
+    grid-area: header;
+    font-size: 2em;
+    background: #F08080;
+    width: 100%;
+    height: 100%;
+    border-bottom: 3px solid maroon;
+}
+
+.left{
+    grid-area: col-left;
+    font-size: 2em;
+    height: 100%;
+    padding: 1em;
+    margin: auto;
+}
+
+.entry{
+    grid-area: col-right;
+    font-size: 2em;
+    height: 100%;
+    padding: 1em;
+    margin: auto;
+}
+
+.feel,
+.zip{
+    font-size: 1em;
+    padding: 1em 0.5em;
 }
 
 #zip {
-	border: 2px solid maroon;
+    padding: 0.2em;
 }
 
-#zip.error {
-	border: 2px solid maroon;
-}
+.footer{
 
-#conditions {
-	display: flex;
-	flex-direction: row;
 }
-
-#conditions p {
-	margin: 0;
+.card{
+    background: #F08080;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    border-radius: 10px;
+    padding: 1em;
+    max-width: 400px;
+    min-height: 200px;
+    margin: auto;
 }
-
-#conditions img {
-	width: auto;
-	height: 1em;
-}
-
-#entryHolder {
-}
-
-#date {
-}
-
-#temp {
-}
-
-#content {
-}
-
-.headline {
-	font-family: Copperplate, Papyrus, fantasy;
-	font-size: 8em;
-}
-
-.title {
-}
-
-#generate:hover {
-	background-color: #FFF8DC;
-	color: #22b2da;
-}
-
-//*Basic Styling To Override Default For Basic HTML Elements*//
-label {
-	display: block;
-	font-size: 15px;
-}
-
-input {
-	display: block;
-	height: 50px;
-	width: 400px;
-	color: #FFB6C1;
-	font-size: 20px;
-	font-family: Copperplate, Papyrus, fantasy;
-	border: none;
-}
-
-button {
-	width: 30%;
-	height: 50px;
-	background: #800000;
-	color: #FFB6C1;
-	font-size: 15px;
-	font-family: Copperplate, Papyrus, fantasy;
-	border-radius: 20px;
-	box-shadow: 2px 4px 5px #444;
-	margin: 1em auto;
-	cursor: pointer;
-}
-
-h1 {
-	font-size: 30px;
-}
-
-textarea {
-	background: #FFFFF0;
-	color: #FFB6C1;
-	font-size: 20px;
+#entryHolder{
+    font-size: 14px;
 	font-family: Copperplate, Papyrus, fantasy;
 }
 
-//*Reset style for HTML element on active to have no border*//
-	input:focus,
-	select:focus,
-	textarea:focus,
-	button:focus {
-	outline: none;
+#date{
+
 }
 
-//*Style for Placeholder Text*//
+#temp{
 
-::placeholder {
-//*Firefox, Chrome, Opera*//
-	color: #f0d43a;
-	font-family: Copperplate, Papyrus, fantasy;
 }
 
-:-ms-input-placeholder {
-//*Internet Explorer 10-11*//
-	color: #f0d43a;
-	font-family: Copperplate, Papyrus, fantasy;
+#content{
+
 }
 
-::-ms-input-placeholder {
-//*Microsoft Edge*//
-	color: #f0d43a;
-	font-family: Copperplate, Papyrus, fantasy;
+
+.title{
+    width: 100%;
+}
+
+small{
+    font-size: 12px;
+}
+
+/*Basic Styling To Override Default For Basic HTML Elements*/
+label{
+    display:block;
+    font-size: 20px;
+    width: 80%;
+    margin: auto;
+}
+
+input{
+    display: block;
+    color: #BC8F8F;
+    width: 60%;
+    font-size: 16px;
+    font-family: Copperplate, Papyrus, fantasy;
+    border: 3px solid maroon;
+    border-radius: 10px;
+    padding: 0.2em;
+    margin: auto;
+    margin-top: 0.5em;
+}
+
+button{
+    background: #800000;
+    color: #FFB6C1;
+    font-size: 14px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-family: Copperplate, Papyrus, fantasy;
+    border: 3px solid maroon;
+    box-shadow: 2px 4px 5px #444;
+    cursor: pointer;
+    width: 120px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+button:active{
+    box-shadow: 1px 2px 3px #444;
+}
+
+h1{
+    font-size: 32px;
+}
+
+.center{
+    text-align: center;
+    width: 100%;
+    margin: auto;
+}
+
+textarea{
+    display:block;
+    color: #BC8F8F;
+    width: 80%;
+    font-size: 14px;
+    font-family: Copperplate, Papyrus, fantasy;
+    border: 3px solid maroon;
+    border-radius: 10px;
+    padding: 0.2em;
+    margin: auto;
+}
+
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+/* Style for Placeholder Text*/
+::placeholder { /* Firefox, Chrome, Opera */ 
+    color: black; 
+    font-family: Copperplate, Papyrus, fantasy;
+
+} 
+  
+:-ms-input-placeholder { /* Internet Explorer 10-11 */ 
+    color: black; 
+    font-family: Copperplate, Papyrus, fantasy;
+
+} 
+  
+::-ms-input-placeholder { /* Microsoft Edge */ 
+    color: black; 
+    font-family: Copperplate, Papyrus, fantasy;
+
+} 
+
+@media (max-width: 768px){
+    #app{
+        grid-template-areas:"header"
+                            "col-right"
+                            "col-left "
+                            "footer";
+        grid-template-columns: 1fr;
+        /* grid-template-rows: 60px auto auto 50px; */
+    }
+
 }
