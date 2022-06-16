@@ -1,7 +1,7 @@
 /* Global Variables */
 //these HTML elements listens for click events, get values, update dynamically and configure the OpenWeatherApi
 //http://api.openweathermap.org/data/2.5/weather?zip={zip code},{country code}&APPID={APIKEY}
-let APIKEY = '56a13938398c2a6da8160476adbc71e6';
+const APIKEY = '56a13938398c2a6da8160476adbc71e6&units=metric;
 let apiBaseUrl = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 let fetchWeather = async function (url) {
 let response = await fetch(url);
